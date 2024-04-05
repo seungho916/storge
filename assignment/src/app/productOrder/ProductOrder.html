@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 주문서</title>
+</head>
+
+<body>
+    <h1>상품 주문서</h1>
+    <div>
+        <from>
+            <fieldset>
+                <legend>
+                    <p>개인정보</p>
+                </legend>
+                <div>
+                    <ul style="margin-top: 0px;">
+                        <li>주문자 이름 <input type="text" width="30px"></li>
+                        <li>전화번호 <input type="text" width="30px" placeholder="번호만 입력"></li>
+                    </ul>
+                </div>
+            </fieldset>
+        </from>
+        <from>
+            <fieldset>
+                <legend>
+                    <p>배송정보</p>
+                </legend>
+                <div>
+                    <ul style="margin-top: 0px;">
+                        <li>배송 옵션:
+                            <input name="deliveryRadioButton" type="radio" id="1">
+                            <label for="1">
+                                기존 배송지
+                            </label>
+                            <input name="deliveryRadioButton" type="radio" id="2">
+                            <label for="2">
+                                새 배송지
+                            </label>
+                        </li>
+                        <li>주소 <input type="text" width="30px"></li>
+                        <li>요청사항
+                            <select style="width: 250px;">
+                                <option>요청사항을 선택하세요.</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </fieldset>
+        </from>
+        <from>
+            <fieldset>
+                <legend>
+                    <p>주문정보</p>
+                </legend>
+                <div>상품</div>
+                <div>
+                    <div>
+                        <input type="checkbox"> 방울토마토1kg <del>10,000원</del><strong>8,000원</strong><input type="text">박스
+                    </div>
+                    <div>
+                        <input type="checkbox"> 방울토마토2kg <del>20,000원</del><strong>16,000원</strong><input type="text">박스
+                    </div>
+                    <div>
+                        <input type="checkbox"> 방울토마토3kg <del>30,000원</del><strong>24,000원</strong><input type="text">박스
+                    </div>
+                    <div>
+                        기타사항
+                        <textarea style="width: 353px; height: 64px;"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </from>
+        <from>
+            <fieldset>
+                <legend>
+                    <p>결제 수단</p>
+                </legend>
+                <div>
+                    <ul style="margin-top: 0px;">
+                        <li>
+                            <input name="paymentRadioButton" type="radio" id="1">
+                            <label for="1">
+                                계좌 이체
+                            </label>
+                        </li>
+                        <li>
+                            <input name="paymentRadioButton" type="radio" id="1">
+                            <label for="1">
+                                카드 결제
+                            </label>
+                        </li>
+                        <li>
+                            <input name="paymentRadioButton" type="radio" id="1">
+                            <label for="1">
+                                일반 결제
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </fieldset>
+        </from>
+        <div style="margin-top: 40px;">
+            <button onclick="newPage()">초기화</button>
+            <button>결제하기</button>
+        </div>
+    </div>
+    <script>
+        const deliveryRadioButton = document.querySelectorAll('input[name="deliveryRadioButton"]');
+        deliveryRadioButton.forEach(deliveryRadioButton => {
+            deliveryRadioButton.addEventListener('click', function () {
+                const currentValue = this.value;
+                deliveryRadioButton.forEach(otherButton => {
+                    if (otherButton !== this) {
+                        otherButton.checked = false;
+                    }
+                });
+            });
+        });
+
+        const paymentRadioButton = document.querySelectorAll('input[name="paymentRadioButton"]');
+        paymentRadioButton.forEach(paymentRadioButton => {
+            paymentRadioButton.addEventListener('click', function () {
+                const currentValue = this.value;
+                paymentRadioButton.forEach(otherButton => {
+                    if (otherButton !== this) {
+                        otherButton.checked = false;
+                    }
+                });
+            });
+        });
+
+        function newPage() {
+            window.location.href = '../productOrder/ProductOrder.html'
+        }
+    </script>
+</body>
+
+</html>
