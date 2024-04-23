@@ -31,12 +31,12 @@
                 <div>
                     <ul style="margin-top: 0px;">
                         <li>배송 옵션:
-                            <input name="deliveryRadioButton" type="radio" id="1">
-                            <label for="1">
+                            <label for="existing">
+                                <input name="deliveryRadioButton" type="radio" id="existing">
                                 기존 배송지
                             </label>
-                            <input name="deliveryRadioButton" type="radio" id="2">
-                            <label for="2">
+                            <label for="new">
+                                <input name="deliveryRadioButton" type="radio" id="new">
                                 새 배송지
                             </label>
                         </li>
@@ -58,13 +58,19 @@
                 <div>상품</div>
                 <div>
                     <div>
-                        <input type="checkbox"> 방울토마토1kg <del>10,000원</del><strong>8,000원</strong><input type="text">박스
+                        <label>
+                            <input type="checkbox"> 방울토마토1kg <del>10,000원</del><strong>8,000원</strong><input type="text">박스
+                        </label>
                     </div>
                     <div>
-                        <input type="checkbox"> 방울토마토2kg <del>20,000원</del><strong>16,000원</strong><input type="text">박스
+                        <label>
+                            <input type="checkbox"> 방울토마토2kg <del>20,000원</del><strong>16,000원</strong><input type="text">박스
+                        </label>
                     </div>
                     <div>
-                        <input type="checkbox"> 방울토마토3kg <del>30,000원</del><strong>24,000원</strong><input type="text">박스
+                        <label>
+                            <input type="checkbox"> 방울토마토3kg <del>30,000원</del><strong>24,000원</strong><input type="text">박스
+                        </label>
                     </div>
                     <div>
                         기타 사항
@@ -81,21 +87,20 @@
                 <div>
                     <ul style="margin-top: 0px;">
                         <li>
-                             <label for="1">
-                            <input name="paymentRadioButton" type="radio" id="1">
-                           
+                            <label for="AccountTransfer">
+                                <input name="paymentRadioButton" type="radio" id="AccountTransfer">
                                 계좌 이체
                             </label>
                         </li>
                         <li>
-                            <input name="paymentRadioButton" type="radio" id="1">
-                            <label for="1">
+                            <label for="CreditCard">
+                                <input name="paymentRadioButton" type="radio" id="CreditCard">
                                 카드 결제
                             </label>
                         </li>
                         <li>
-                            <input name="paymentRadioButton" type="radio" id="1">
-                            <label for="1">
+                            <label for="RegularPayment">
+                                <input name="paymentRadioButton" type="radio" id="RegularPayment">
                                 일반 결제
                             </label>
                         </li>
@@ -104,7 +109,7 @@
             </fieldset>
         </from>
         <div style="margin-top: 40px;">
-            <button onclick="newPage()">초기화</button>
+            <button type="reset">초기화</button>
             <button>결제하기</button>
         </div>
     </div>
@@ -133,9 +138,9 @@
             });
         });
 
-        function newPage() {
-            window.location.href = '../productOrder/ProductOrder.html'
-        }
+        // function newPage() {
+        //     window.location.href = '../productOrder/ProductOrder.html'
+        // }
     </script>
 </body>
 
